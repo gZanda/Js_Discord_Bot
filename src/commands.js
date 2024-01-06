@@ -22,7 +22,11 @@ const commands = [
                 required: true,
             },
         ],
-    }
+    },
+    {
+        name: 'embed',
+        description: 'Replies with an Image!',
+    },
   ];
 
 // DON'T TOUCH THIS

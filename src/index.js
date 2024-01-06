@@ -1,5 +1,5 @@
 // Imports
-const {Client, IntentsBitField} = require ('discord.js')
+const {Client, IntentsBitField, EmbedBuilder} = require ('discord.js')
 require('dotenv').config();
 
 // Bot Intents ( Permissions and Capabilities )
@@ -41,6 +41,11 @@ client.on('interactionCreate', (interaction)=>{
     if (interaction.commandName === 'ofender'){
         const user = interaction.options.getUser('user');
         interaction.reply(`**Vai se foder ${user}!**🖕​🤬  (  ≽^•⩊•^≼  )`);
+    }
+
+    if (interaction.commandName === 'embed'){
+        const embed = new EmbedBuilder().setTitle("Tittle Sample").setDescription("Description Sample").setColor("Purple")
+        interaction.reply({embeds: [embed]});
     }
 
     console.log(interaction.commandName);
