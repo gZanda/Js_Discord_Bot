@@ -22,7 +22,7 @@ client.on('messageCreate', (message)=>{
     if (message.author.bot) return;
 
     if (message.content.toLowerCase() === 'oi'){
-        message.channel.send('**Oiii, Vc é viado!**  ≽^•⩊•^≼');	
+        message.channel.send('**Oiii, Vc é viado!**  (  ≽^•⩊•^≼  )');	
     }
 });
 
@@ -31,11 +31,16 @@ client.on('interactionCreate', (interaction)=>{
     if (!interaction.isChatInputCommand()) return;
 
     if (interaction.commandName === 'ping'){
-        interaction.reply('**Pong!**  ≽^•⩊•^≼');
+        interaction.reply('**Pong!**  (  ≽^•⩊•^≼  )');
     }
 
     if (interaction.commandName === 'aviadar'){
-        interaction.reply('**Agora vc é V I A D O!**  ≽^•⩊•^≼');
+        interaction.reply('**Agora vc é V I A D O!**  (  ≽^•⩊•^≼  )');
+    }
+
+    if (interaction.commandName === 'ofender'){
+        const user = interaction.options.getUser('user');
+        interaction.reply(`**Vai se foder ${user}!**🖕​🤬  (  ≽^•⩊•^≼  )`);
     }
 
     console.log(interaction.commandName);
