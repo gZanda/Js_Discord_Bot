@@ -27,6 +27,10 @@ const commands = [
         name: 'embed',
         description: 'Replies with an Image!',
     },
+    {
+        name: 'gato',
+        description: 'Replies with a cat Image!',
+    },
   ];
 
 // DON'T TOUCH THIS

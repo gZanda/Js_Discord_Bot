@@ -1,5 +1,5 @@
 // Imports
-const {Client, IntentsBitField, EmbedBuilder} = require ('discord.js')
+const {Client, IntentsBitField, EmbedBuilder, Embed} = require ('discord.js');
 require('dotenv').config();
 
 // Bot Intents ( Permissions and Capabilities )
@@ -45,6 +45,11 @@ client.on('interactionCreate', (interaction)=>{
 
     if (interaction.commandName === 'embed'){
         const embed = new EmbedBuilder().setTitle("Tittle Sample").setDescription("Description Sample").setColor("Purple")
+        interaction.reply({embeds: [embed]});
+    }
+
+    if (interaction.commandName === 'gato'){
+        const embed = new EmbedBuilder().setTitle("**≽ ^ • ⩊ • ^ ≼**").setImage("https://ih0.redbubble.net/image.4583816833.9469/raf,360x360,075,t,fafafa:ca443f4786.jpg").setColor("Purple");
         interaction.reply({embeds: [embed]});
     }
 
