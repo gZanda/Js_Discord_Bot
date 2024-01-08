@@ -21,8 +21,13 @@ client.on ('ready', () => {
 client.on('messageCreate', (message)=>{
     if (message.author.bot) return;
 
-    if (message.content.toLowerCase() === 'oi'){
+    else if (message.content.toLowerCase() === 'oi'){
         message.channel.send('**Oiii, Vc é viado!**  (  ≽^•⩊•^≼  )');	
+    }
+
+    else if (message.mentions.has(client.user) && message.content.includes("oi")) {
+        // Respond to the mention
+        message.channel.send(`**Oi, o q vc quer seu viado ?**  (  ≽^•⩊•^≼  )`);
     }
 });
 
@@ -30,25 +35,25 @@ client.on('messageCreate', (message)=>{
 client.on('interactionCreate', (interaction)=>{
     if (!interaction.isChatInputCommand()) return;
 
-    if (interaction.commandName === 'ping'){
+    else if (interaction.commandName === 'ping'){
         interaction.reply('**Pong!**  (  ≽^•⩊•^≼  )');
     }
 
-    if (interaction.commandName === 'aviadar'){
+    else if (interaction.commandName === 'aviadar'){
         interaction.reply('**Agora vc é V I A D O!**  (  ≽^•⩊•^≼  )');
     }
 
-    if (interaction.commandName === 'ofender'){
+    else if (interaction.commandName === 'ofender'){
         const user = interaction.options.getUser('user');
         interaction.reply(`**Vai se foder ${user}!**🖕​🤬  (  ≽^•⩊•^≼  )`);
     }
 
-    if (interaction.commandName === 'embed'){
+    else if (interaction.commandName === 'embed'){
         const embed = new EmbedBuilder().setTitle("Tittle Sample").setDescription("Description Sample").setColor("Purple")
         interaction.reply({embeds: [embed]});
     }
 
-    if (interaction.commandName === 'gato'){
+    else if (interaction.commandName === 'gato'){
         const embed = new EmbedBuilder().setTitle("**≽ ^ • ⩊ • ^ ≼**").setImage("https://ih0.redbubble.net/image.4583816833.9469/raf,360x360,075,t,fafafa:ca443f4786.jpg").setColor("Purple");
         interaction.reply({embeds: [embed]});
     }
