@@ -1,5 +1,5 @@
 // Imports
-const {Client, IntentsBitField, EmbedBuilder, Embed} = require ('discord.js');
+const {Client, IntentsBitField, EmbedBuilder} = require ('discord.js');
 const axios = require('axios');
 require('dotenv').config();
 
