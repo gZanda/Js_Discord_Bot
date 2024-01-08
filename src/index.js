@@ -1,5 +1,6 @@
 // Imports
 const {Client, IntentsBitField, EmbedBuilder, Embed} = require ('discord.js');
+const axios = require('axios');
 require('dotenv').config();
 
 // Bot Intents ( Permissions and Capabilities )
@@ -17,8 +18,8 @@ client.on ('ready', () => {
     console.log ('✅ Gato de bosta is Online')
 });
 
-// Event Listener -> Response to "Oi"
-client.on('messageCreate', (message)=>{
+// Event Listener -> Simple Text Commands -> DEFINE HERE WHAT THE BOT GONNA DO WITH THE COMMAND
+client.on('messageCreate', async (message)=>{
     if (message.author.bot) return;
 
     else if (message.content.toLowerCase() === 'oi'){
@@ -29,9 +30,17 @@ client.on('messageCreate', (message)=>{
         // Respond to the mention
         message.channel.send(`**Oi, o q vc quer seu viado ?**  (  ≽^•⩊•^≼  )`);
     }
+
+    else if (message.mentions.has(client.user) && message.content.includes("cat")) {
+        // Respond to the mention
+        const response = await axios.get(`https://g.tenor.com/v1/random?q=cat_reaction&key=LIVDSRZULELA&limit=1&media_filter=minimal`)
+        const gifUrl = response.data.results[0].media[0].gif.url;
+        const embed = new EmbedBuilder().setTitle("≽ ^ • ⩊ • ^ ≼ \n My honest reaction:").setImage(gifUrl).setColor("Purple");
+        message.channel.send({embeds: [embed]});
+    }
 });
 
-// Event Listener -> Response to Slash Commands -> DEFINE HERE WHAT THE BOT GONNA DO WITH THE COMMAND
+// Event Listener -> Slash Commands -> DEFINE HERE WHAT THE BOT GONNA DO WITH THE COMMAND
 client.on('interactionCreate', (interaction)=>{
     if (!interaction.isChatInputCommand()) return;
 
