@@ -31,13 +31,20 @@ client.on('messageCreate', async (message)=>{
         message.channel.send(`**Oi, o q vc quer seu viado ?**  (  ≽^•⩊•^≼  )`);
     }
 
-    else if (message.mentions.has(client.user) && message.content.includes("cat")) {
+    else if (message.mentions.has(client.user) && message.content.toLowerCase().includes("reação")) {
         // Respond to the mention
-        const response = await axios.get(`https://g.tenor.com/v1/random?q=cat_reaction&key=LIVDSRZULELA&limit=1&media_filter=minimal`)
+        const response = await axios.get(`https://g.tenor.com/v1/random?q=cat_reaction&key=${process.env.TENOR_KEY}&limit=3&media_filter=minimal`)
         const gifUrl = response.data.results[0].media[0].gif.url;
-        const embed = new EmbedBuilder().setTitle("≽ ^ • ⩊ • ^ ≼ \n My honest reaction:").setImage(gifUrl).setColor("Purple");
+        const embed = new EmbedBuilder().setTitle("≽ ^ • ⩊ • ^ ≼ \n Minha honesta reação:").setImage(gifUrl).setColor("Purple");
         message.channel.send({embeds: [embed]});
     }
+
+    else if (message.mentions.has(client.user) && message.content.toLowerCase().includes("porra") || message.content.toLowerCase().includes("poha")) {
+        const embed = new EmbedBuilder().setTitle("**≽ ^ • ⩊ • ^ ≼ \n \n SIM! \n NÓS DA O CU PORRA!**").setImage("https://pbs.twimg.com/media/F8fLk3BXYAAp6KT.jpg").setColor("Purple");
+        message.channel.send({embeds: [embed]});
+    }
+
+    else message.channel.send(`**≽ ^ • ⩊ • ^ ≼  \n Ops! Parece que um viado me mencinou atoa.**  `);
 });
 
 // Event Listener -> Slash Commands -> DEFINE HERE WHAT THE BOT GONNA DO WITH THE COMMAND
