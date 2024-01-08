@@ -8,10 +8,6 @@ const commands = [
         description: 'Replies with viado!',
     },
     {
-        name: 'ping',
-        description: 'Replies with Pong!',
-    },
-    {
         name: 'ofender',
         description: 'Ofends a user',
         options: [
@@ -22,10 +18,6 @@ const commands = [
                 required: true,
             },
         ],
-    },
-    {
-        name: 'embed',
-        description: 'Replies with an Image!',
     },
     {
         name: 'gato',
