@@ -26,9 +26,10 @@ client.on('messageCreate', async (message)=>{
         message.channel.send('**Oiii, Vc é viado!**  (  ≽^•⩊•^≼  )');	
     }
 
-    else if (message.mentions.has(client.user) && message.content.includes("oi")) {
+    else if (message.mentions.has(client.user) && message.content.toLowerCase().includes("oi")) {
         // Respond to the mention
-        message.channel.send(`**Oi, o q vc quer seu viado ?**  (  ≽^•⩊•^≼  )`);
+        //const mentioningUser = message.mentions.users.first();
+        message.channel.send(`**Oi ${message.author}, o q vc quer seu viado ?**  (  ≽^•⩊•^≼  )`);
     }
 
     else if (message.mentions.has(client.user) && message.content.toLowerCase().includes("reação")) {
