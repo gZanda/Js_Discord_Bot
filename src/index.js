@@ -53,7 +53,7 @@ client.on('messageCreate', async (message)=>{
         message.channel.send({embeds: [embed]});
     }
 
-    else {
+    else if (message.mentions.has(client.user)) {
         const embed = new EmbedBuilder().setTitle("**≽ ^ • ⩊ • ^ ≼ \n \n NÃO ENTENDI PORRA NENHUMA**").setImage("https://pbs.twimg.com/media/F4ZjUFWWgAA5oul.jpg").setColor("Purple");
         message.channel.send({embeds: [embed]});
     }
