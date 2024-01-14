@@ -5,24 +5,28 @@ require('dotenv').config();
 const commands = [
     {
         name: 'aviadar',
-        description: 'Replies with viado!',
+        description: 'Te deixa mais viado ainda',
     },
     {
         name: 'ofender',
-        description: 'Ofends a user',
+        description: 'Xinga um usuário',
         options: [
             {
                 name: 'user',
                 type: 6,
-                description: 'The user to ofend',
+                description: 'Usuário para ofender',
                 required: true,
             },
         ],
     },
     {
         name: 'gato',
-        description: 'Replies with a cat Image!',
+        description: 'Manda um gato de bosta no chat',
     },
+    {
+        name: 'help',
+        description: 'Mostra os comandos de bosta',
+    }
   ];
 
 // DON'T TOUCH THIS

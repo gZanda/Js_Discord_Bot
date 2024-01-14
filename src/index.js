@@ -37,7 +37,7 @@ client.on('messageCreate', async (message)=>{
         // Respond to the mention
         const response = await axios.get(`https://g.tenor.com/v1/random?q=cat_reaction&key=${process.env.TENOR_KEY}&limit=3&media_filter=minimal`)
         const gifUrl = response.data.results[0].media[0].gif.url;
-        const embed = new EmbedBuilder().setTitle("**≽ ^ • ⩊ • ^ ≼ \n \n Minha honesta reação:**").setImage(gifUrl).setColor("Purple");
+        const embed = new EmbedBuilder().setTitle("**≽ ^ • ⩊ • ^ ≼ \n \n Minha honesta reação 👇**").setImage(gifUrl).setColor("Purple");
         message.channel.send({embeds: [embed]});
     }
 
@@ -49,7 +49,7 @@ client.on('messageCreate', async (message)=>{
     else if (message.attachments.size > 0) {
         const response = await axios.get(`https://g.tenor.com/v1/random?q=cat_reaction&key=${process.env.TENOR_KEY}&limit=3&media_filter=minimal`);
         const gifUrl = response.data.results[0].media[0].gif.url;
-        const embed = new EmbedBuilder().setTitle("**≽ ^ • ⩊ • ^ ≼ \n \n Minha honesta reação:**").setImage(gifUrl).setColor("Purple");
+        const embed = new EmbedBuilder().setTitle("**≽ ^ • ⩊ • ^ ≼ \n \n Minha honesta reação 👇**").setImage(gifUrl).setColor("Purple");
         message.channel.send({embeds: [embed]});
     }
 
@@ -78,6 +78,11 @@ client.on('interactionCreate',async (interaction)=>{
 
     else if (interaction.commandName === 'gato'){
         const embed = new EmbedBuilder().setTitle("**≽ ^ • ⩊ • ^ ≼ \n \n Olhem esse gato de B O S T A 👇**").setImage("https://ih0.redbubble.net/image.4583816833.9469/raf,360x360,075,t,fafafa:ca443f4786.jpg").setColor("Purple");
+        interaction.reply({embeds: [embed]});
+    }
+
+    else if (interaction.commandName === 'help'){
+        const embed = new EmbedBuilder().setTitle("**≽ ^ • ⩊ • ^ ≼ \n \n Comandos de B O S T A 👇**").setDescription(`**/aviadar \n /ofender \n /gato**`).setColor("Purple");
         interaction.reply({embeds: [embed]});
     }
 
